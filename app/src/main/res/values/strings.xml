@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Bia Glic Monitor</string>
+    <string name="BtnAcompanhar">Acompanhar</string>
+    <string name="MainBtnAdd">Adicionar Medição</string>
+    <string name="MainBtnCompartilhar">Compartilhar</string>
+    <string name="MainBtnCadastro">Cadastro</string>
+    <string name="MainBtnConfigurar">Configurações</string>
+    <string name="AddMedicaoTxtInfo">Informe a Taxa:</string>
+    <string name="BtnGravar">Gravar</string>
+</resources>

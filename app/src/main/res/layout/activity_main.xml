@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/BtnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/MainBtnAdd"/>
+
+    <Button
+        android:id="@+id/BtnCompartilhar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/MainBtnCompartilhar"/>
+
+    <Button
+        android:id="@+id/BtnCadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/MainBtnCadastro"/>
+
+    <Button
+        android:id="@+id/BtnConfigurar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/MainBtnConfigurar"/>
+
+</LinearLayout>
