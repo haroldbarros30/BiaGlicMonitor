@@ -7,21 +7,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <EditText
-        android:id="@+id/AddMedicaoEdtTaxa"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="@string/AddMedicaoEdtTaxa"/>
+        android:text="@string/CompartilharTxtInfo"
+        android:textSize="20sp"/>
 
-    <Button
-        android:id="@+id/AddMedicaoBtnGravar"
+   <Button
+       android:id="@+id/CompartilharBtnAddNovo"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="@string/CompartilharBtnAddNovo"/>
+
+    <ListView
+        android:id="@+id/AcompLst"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/BtnGravar"
-        />
+        android:layout_height="match_parent">
+    </ListView>
 
 </LinearLayout>
-
-

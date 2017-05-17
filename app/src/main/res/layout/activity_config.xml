@@ -8,20 +8,19 @@
     android:layout_height="match_parent">
 
 
-    <EditText
-        android:id="@+id/AddMedicaoEdtTaxa"
+  <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="@string/AddMedicaoEdtTaxa"/>
+        android:text="@string/ConfigTxtInfo"
+        android:textSize="30sp"/>
 
-    <Button
-        android:id="@+id/AddMedicaoBtnGravar"
+    <TimePicker
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/BtnGravar"
-        />
+        android:layout_height="wrap_content" >
+
+    </TimePicker>
+
+
+
 
 </LinearLayout>
-
-

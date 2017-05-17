@@ -7,4 +7,11 @@
     <string name="MainBtnConfigurar">Configurações</string>
     <string name="AddMedicaoTxtInfo">Informe a Taxa:</string>
     <string name="BtnGravar">Gravar</string>
+    <string name="CadastroEdtNome">Informe o Nome ou Apelido</string>
+    <string name="CadastroEdtEmail">Informe o seu e-mail</string>
+    <string name="CadastroEdtTelefone">Informe o Telefone</string>
+    <string name="AddMedicaoEdtTaxa">Informe a Taxa atual</string>
+    <string name="CompartilharBtnAddNovo">Selecionar um contato</string>
+    <string name="CompartilharTxtInfo">Pessoas com quem compartilho minhas medições:</string>
+    <string name="ConfigTxtInfo">Lembrete de Medição:</string>
 </resources>

@@ -9,19 +9,30 @@
 
 
     <EditText
-        android:id="@+id/AddMedicaoEdtTaxa"
+        android:id="@+id/CadastroEdtNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="@string/AddMedicaoEdtTaxa"/>
+        android:hint="@string/CadastroEdtNome"/>
+
+
+    <EditText
+        android:id="@+id/CadastroEdtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/CadastroEdtEmail"/>
+
+    <EditText
+        android:id="@+id/CadastroEdtTelefone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/CadastroEdtTelefone"/>
+
 
     <Button
-        android:id="@+id/AddMedicaoBtnGravar"
+        android:id="@+id/CadastroBtnGravar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/BtnGravar"
         />
 
 </LinearLayout>
-
-

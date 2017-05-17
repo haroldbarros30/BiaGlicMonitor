@@ -3,11 +3,11 @@ package br.com.rsacsolucoes.biaglicmonitor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Acompanhamento extends AppCompatActivity {
+public class AcompDetalheActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_acompanhamento);
+        setContentView(R.layout.activity_acomp_detalhe);
     }
 }

@@ -16,8 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddMedicao" />
-        <activity android:name=".Acompanhamento"></activity>
+        <activity android:name=".AddMedicaoActivity" />
+        <activity android:name=".AcompActivity" />
+        <activity android:name=".AcompDetalheActivity" />
+        <activity android:name=".CadastroActivity" />
+        <activity android:name=".CompartilharActivity" />
+        <activity android:name=".ConfigActivity"></activity>
     </application>
 
 </manifest>
