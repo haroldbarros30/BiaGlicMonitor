@@ -14,6 +14,12 @@
         android:text="@string/MainBtnAdd"/>
 
     <Button
+        android:id="@+id/BtnAcompanhar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/MainBtnAcompanhar"/>
+
+    <Button
         android:id="@+id/BtnCompartilhar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,5 +36,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/MainBtnConfigurar"/>
+
+    <ImageView
+        android:id="@+id/ImgLogo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@mipmap/ic_launcher"
+        />
 
 </LinearLayout>

@@ -14,4 +14,5 @@
     <string name="CompartilharBtnAddNovo">Selecionar um contato</string>
     <string name="CompartilharTxtInfo">Pessoas com quem compartilho minhas medições:</string>
     <string name="ConfigTxtInfo">Lembrete de Medição:</string>
+    <string name="MainBtnAcompanhar">Acompanhar</string>
 </resources>
