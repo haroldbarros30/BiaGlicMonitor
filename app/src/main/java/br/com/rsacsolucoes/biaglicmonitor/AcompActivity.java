@@ -32,19 +32,14 @@ public class AcompActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acomp);
 
-
         findViews();
-
 
         //Busca a lista de pessoas que o atual usuario faz acompanhamento
         //// TODO: 20/05/17 Adicionar o usuario logado/cadastrado no sistema
         usuarios = UsuarioService.GetUsuarios();
 
-
         //cria o adapter para
         usuarioAdapter = new UsuarioAdapter(usuarios, this);
-
-
 
         AcompRcvLista.setAdapter(usuarioAdapter);
 
@@ -79,12 +74,8 @@ public class AcompActivity extends AppCompatActivity {
 
                 int position = AcompRcvLista.getChildLayoutPosition(view);
                 Bundle bundle = new Bundle();
-
-                //pega a pessoa selecionada
-                Usuario usuario = usuarios.get(position);
-
-                //guarda a pessoa selecionada para ser recuperada posteriormente
-                bundle.putSerializable("Usuario", (Serializable)usuario);
+               //guarda a pessoa selecionada para ser recuperada posteriormente
+                bundle.putSerializable("usuario", usuarios.get(position));
 
                 goToAcompDetalhe(bundle);
             }

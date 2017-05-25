@@ -8,31 +8,37 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/BtnAdd"
+        android:id="@+id/MainBtnAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/MainBtnAdd"/>
 
     <Button
-        android:id="@+id/BtnAcompanhar"
+        android:id="@+id/MainBtnMinhasMedicoes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/MainBtnMinhasMedicoes"/>
+
+    <Button
+        android:id="@+id/MainBtnAcompanhar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/MainBtnAcompanhar"/>
 
     <Button
-        android:id="@+id/BtnCompartilhar"
+        android:id="@+id/MainBtnCompartilhar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/MainBtnCompartilhar"/>
 
     <Button
-        android:id="@+id/BtnCadastro"
+        android:id="@+id/MainBtnCadastro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/MainBtnCadastro"/>
 
     <Button
-        android:id="@+id/BtnConfigurar"
+        android:id="@+id/MainBtnConfigurar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/MainBtnConfigurar"/>

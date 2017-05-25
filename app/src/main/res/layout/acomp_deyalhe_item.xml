@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="10dp">
+
+    <TextView
+        android:id="@+id/AcompDetalheTxtMedicaoValor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:paddingLeft="16dp"
+        android:textSize="32dp"/>
+
+    <TextView
+        android:id="@+id/AcompDetalheTxtMedicaoData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dd/mm"
+        android:paddingLeft="16dp"/>
+
+    <TextView
+        android:id="@+id/AcompDetalheTxtMedicaoHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hh:mm"
+        android:paddingLeft="16dp"/>
+
+</LinearLayout>

@@ -1,10 +1,12 @@
 package br.com.rsacsolucoes.biaglicmonitor.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by haroldbarros on 20/05/17.
  * Classe responsavel por guardar das medicoes realizadas
  */
-public class Medicao {
+public class Medicao  implements Serializable {
     private final String Data;
     private final String Hora;
     private final double Valor;

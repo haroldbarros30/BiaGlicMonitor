@@ -8,24 +8,23 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import br.com.rsacsolucoes.biaglicmonitor.Model.Medicao;
 import br.com.rsacsolucoes.biaglicmonitor.Model.Usuario;
 import br.com.rsacsolucoes.biaglicmonitor.R;
 
-//import static android.icu.text.RelativeDateTimeFormatter.Direction.THIS;
-
 /**
- * Created by haroldbarros on 20/05/17.
+ * Created by haroldbarros on 24/05/17.
  */
 
-public class UsuarioAdapter extends RecyclerView.Adapter
+public class MedicaoAdapter extends RecyclerView.Adapter
         implements View.OnClickListener {
 
-    private List<Usuario> usuarios;
+    private List<Medicao> medicoes;
     private Context context;
     private View.OnClickListener listener;
 
-    public UsuarioAdapter(List<Usuario> usuarios, Context context) {
-        this.usuarios = usuarios;
+    public MedicaoAdapter(List<Medicao> medicoes, Context context) {
+        this.medicoes = medicoes;
         this.context = context;
     }
 
@@ -38,9 +37,9 @@ public class UsuarioAdapter extends RecyclerView.Adapter
 
         // faz o inflate
         View view = LayoutInflater.from(context)
-                .inflate(R.layout.acomp_item, parent, false);
+                .inflate(R.layout.acomp_deyalhe_item, parent, false);
 
-        UsuarioViewHolder holder = new UsuarioViewHolder(view);
+        MedicaoViewHolder holder = new MedicaoViewHolder(view);
 
         view.setOnClickListener(listener);
 
@@ -55,31 +54,22 @@ public class UsuarioAdapter extends RecyclerView.Adapter
                                  int position) {
 
         //atribui as os valores das variaveis
-        UsuarioViewHolder holder = (UsuarioViewHolder) viewHolder;
+        MedicaoViewHolder holder = (MedicaoViewHolder)viewHolder;
 
-        Usuario usuario  = usuarios.get(position) ;
+        Medicao medicao  = medicoes.get(position) ;
 
-        holder.AcompItemTxtNome.setText(usuario.getNome());
+        if (medicao != null) {
 
-        if (usuario.getUltimaMedicao() != null) {
-
-            //// TODO: 20/05/17 verificar como converter double para string
-            holder.AcompItemTxtMedicaoValor.setText(String.valueOf(usuario.getUltimaMedicao().getValor()));
-            holder.AcompItemTxtMedicaoData.setText(usuario.getUltimaMedicao().getData());
-            holder.AcompItemTxtMedicaoHora.setText(usuario.getUltimaMedicao().getHora());
-        }
-        else
-        {
-            holder.AcompItemTxtMedicaoValor.setText("");
-            holder.AcompItemTxtMedicaoData.setText(R.string.AcompItemVazio);
-            holder.AcompItemTxtMedicaoHora.setText("");
+            holder.AcompDetalheTxtMedicaoValor.setText(String.valueOf(medicao.getValor()));
+            holder.AcompDetalheTxtMedicaoData.setText(medicao.getData());
+            holder.AcompDetalheTxtMedicaoHora.setText(medicao.getHora());
         }
 
     }
 
     @Override
     public int getItemCount() {
-        return usuarios.size();
+        return medicoes.size();
     }
 
 
@@ -97,7 +87,8 @@ public class UsuarioAdapter extends RecyclerView.Adapter
         if (listener != null)
             listener.onClick(v);
     }
-    
+
 }
+
 
 

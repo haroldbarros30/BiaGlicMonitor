@@ -1,5 +1,6 @@
 package br.com.rsacsolucoes.biaglicmonitor.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import static android.os.Build.VERSION_CODES.M;
  * Classe responsavel pelos dados dos usuarios do sistema
  */
 
-public class Usuario {
+public class Usuario implements Serializable {
     private String Nome;
     private String Email;
     private List<Medicao> Medicoes;
@@ -41,7 +42,7 @@ public class Usuario {
 
         //se existe medicoes adicionadas
         if (Medicoes.size()>0){
-            return Medicoes.get(Medicoes.size());
+            return Medicoes.get(Medicoes.size()-1);
         }
         else
             return null;

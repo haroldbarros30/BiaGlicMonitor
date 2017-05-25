@@ -15,4 +15,6 @@
     <string name="CompartilharTxtInfo">Pessoas com quem compartilho minhas medições:</string>
     <string name="ConfigTxtInfo">Lembrete de Medição:</string>
     <string name="MainBtnAcompanhar">Acompanhar</string>
+    <string name="MainBtnMinhasMedicoes">Minhas Medições</string>
+    <string name="AcompItemVazio">nenhuma medição informada</string>
 </resources>

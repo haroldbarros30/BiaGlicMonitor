@@ -20,10 +20,6 @@ import br.com.rsacsolucoes.biaglicmonitor.Model.Medicao;
 import br.com.rsacsolucoes.biaglicmonitor.Model.Usuario;
 import br.com.rsacsolucoes.biaglicmonitor.Service.UsuarioService;
 
-import static br.com.rsacsolucoes.biaglicmonitor.R.id.BtnAdd;
-import static br.com.rsacsolucoes.biaglicmonitor.R.id.BtnCadastro;
-import static br.com.rsacsolucoes.biaglicmonitor.R.id.BtnCompartilhar;
-import static br.com.rsacsolucoes.biaglicmonitor.R.id.BtnConfigurar;
 import static br.com.rsacsolucoes.biaglicmonitor.R.id.ImgLogo;
 import static br.com.rsacsolucoes.biaglicmonitor.Service.UsuarioService.getUsuarioLogado;
 

@@ -17,14 +17,19 @@ import br.com.rsacsolucoes.biaglicmonitor.Service.UsuarioService;
 
 import static android.R.attr.name;
 import static android.R.attr.reqFiveWayNav;
+import static br.com.rsacsolucoes.biaglicmonitor.R.id.MainBtnAdd;
+import static br.com.rsacsolucoes.biaglicmonitor.R.id.MainBtnCadastro;
+import static br.com.rsacsolucoes.biaglicmonitor.R.id.MainBtnCompartilhar;
+import static br.com.rsacsolucoes.biaglicmonitor.R.id.MainBtnConfigurar;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button BtnAdd;
-    private Button BtnAcompanhar;
-    private Button BtnCompartilhar;
-    private Button BtnCadastro;
-    private Button BtnConfigurar;
+    private Button MainBtnAdd;
+    private Button MainBtnAcompanhar;
+    private Button MainBtnCompartilhar;
+    private Button MainBtnCadastro;
+    private Button MainBtnConfigurar;
+    private Button MainBtnMinhasMedicoes;
     private ImageView ImgLogo;
 
     @Override
@@ -44,11 +49,12 @@ public class MainActivity extends AppCompatActivity {
      */
     private void findViews() {
 
-        BtnAdd = (Button) findViewById(R.id.BtnAdd);
-        BtnCompartilhar = (Button) findViewById(R.id.BtnCompartilhar);
-        BtnAcompanhar = (Button) findViewById(R.id.BtnAcompanhar);
-        BtnCadastro = (Button) findViewById(R.id.BtnCadastro);
-        BtnConfigurar = (Button) findViewById(R.id.BtnConfigurar);
+        MainBtnAdd = (Button) findViewById(R.id.MainBtnAdd);
+        MainBtnCompartilhar = (Button) findViewById(R.id.MainBtnCompartilhar);
+        MainBtnAcompanhar = (Button) findViewById(R.id.MainBtnAcompanhar);
+        MainBtnCadastro = (Button) findViewById(R.id.MainBtnCadastro);
+        MainBtnConfigurar = (Button) findViewById(R.id.MainBtnConfigurar);
+        MainBtnMinhasMedicoes = (Button) findViewById(R.id.MainBtnMinhasMedicoes);
         ImgLogo = (ImageView)findViewById(R.id.ImgLogo);
 
     }
@@ -59,35 +65,40 @@ public class MainActivity extends AppCompatActivity {
      */
     private void setActions() {
 
-        BtnAdd.setOnClickListener(new View.OnClickListener() {
+        MainBtnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToAddMedicaoActivity(ImgLogo);
             }
         });
-        BtnCompartilhar.setOnClickListener(new View.OnClickListener() {
+        MainBtnCompartilhar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToCompartilharActivity();
             }
-
         });
-        BtnCadastro.setOnClickListener(new View.OnClickListener() {
+        MainBtnCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToCadastroActivity();
             }
         });
-        BtnConfigurar.setOnClickListener(new View.OnClickListener() {
+        MainBtnConfigurar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToConfigActivity();
             }
         });
-        BtnAcompanhar.setOnClickListener(new View.OnClickListener() {
+        MainBtnAcompanhar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToAcompActivity();
+            }
+        });
+        MainBtnMinhasMedicoes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToAcompDetalheActivity();
             }
         });
         ImgLogo.setOnClickListener(new View.OnClickListener() {
@@ -144,6 +155,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void goToAcompActivity() {
         Intent intent = new Intent(MainActivity.this, AcompActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToAcompDetalheActivity() {
+        Intent intent = new Intent(MainActivity.this, AcompDetalheActivity.class);
         startActivity(intent);
     }
 
