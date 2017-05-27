@@ -7,32 +7,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <EditText
         android:id="@+id/CadastroEdtNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/CadastroEdtNome"/>
-
+        android:hint="@string/CadastroEdtNome"
+        android:inputType="textPersonName"/>
 
     <EditText
         android:id="@+id/CadastroEdtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/CadastroEdtEmail"/>
+        android:hint="@string/CadastroEdtEmail"
+        android:inputType="textEmailAddress"/>
 
     <EditText
         android:id="@+id/CadastroEdtTelefone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/CadastroEdtTelefone"/>
-
+        android:hint="@string/CadastroEdtTelefone"
+        android:inputType="phone"/>
 
     <Button
         android:id="@+id/CadastroBtnGravar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/BtnGravar"
-        />
+        android:text="@string/BtnGravar"/>
 
 </LinearLayout>

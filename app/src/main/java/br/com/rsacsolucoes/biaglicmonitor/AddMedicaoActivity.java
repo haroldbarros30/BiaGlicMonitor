@@ -73,13 +73,21 @@ public class AddMedicaoActivity extends AppCompatActivity {
                 //faz a validacao se foi informado alguma medicao
                 if (AddMedicaoEdtTaxa.getText().equals("")){
 
-                    Toast toast = Toast.makeText(getApplicationContext(), "Informe a medição", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), R.string.AddMedicaoMsgInfoMedicao, Toast.LENGTH_SHORT);
                     toast.show();
                     return;
                 }
 
                 //pega o valor informado no campo de texto
                 double valor = Double.parseDouble(AddMedicaoEdtTaxa.getText().toString());
+
+                //verifica se o valor e maior que zero
+                if (valor<=0)
+                {
+                    Toast toast = Toast.makeText(getApplicationContext(), R.string.AddMedicaoMsgInfoMedicao, Toast.LENGTH_SHORT);
+                    toast.show();
+                    return;
+                }
 
                 //busca a data atual
                 Date DataAtual = Calendar.getInstance().getTime();
@@ -97,7 +105,7 @@ public class AddMedicaoActivity extends AppCompatActivity {
                 //adiciona a medicao ao usuario logado
                 getUsuarioLogado().AddMedicao(medicao);
 
-                Toast toast = Toast.makeText(getApplicationContext(), "medição adicionada", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), R.string.AddMedicaoMsgMedicaoAdicionada, Toast.LENGTH_SHORT);
                 toast.show();
 
 

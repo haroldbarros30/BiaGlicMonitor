@@ -17,4 +17,9 @@
     <string name="MainBtnAcompanhar">Acompanhar</string>
     <string name="MainBtnMinhasMedicoes">Minhas Medições</string>
     <string name="AcompItemVazio">nenhuma medição informada</string>
+    <string name="ConfigTxtMinutos">Minutos</string>
+    <string name="AddMedicaoMsgInfoMedicao">Informe a medição</string>
+    <string name="ConfigMsgInfoLembrete">Informe o tempo do lembrete em minutos!</string>
+    <string name="AddMedicaoMsgMedicaoAdicionada">medição adicionada</string>
+    <string name="ConfigMsgConfigGravada">Configurações Gravadas</string>
 </resources>

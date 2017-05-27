@@ -1,5 +1,6 @@
 package br.com.rsacsolucoes.biaglicmonitor;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -34,10 +35,20 @@ public class AcompDetalheActivity extends AppCompatActivity {
         setContentView(R.layout.activity_acomp_detalhe);
 
         findViews();
+
+
+        //pega o usuario logado por padrao
+        Usuario usuario = UsuarioService.getUsuarioLogado();
+
+        //verifica se foi passado alguma configuracao de usuario para filtro
+        if(getIntent().hasExtra("extra")){
+            if(!getIntent().getBundleExtra("extra").getSerializable("usuario").equals(null)){
+                //busca o usuario passado pelo parametros
+                usuario = (Usuario) getIntent().getBundleExtra("extra").getSerializable("usuario");
+
+            }
+        }
         
-        //busca o usuario passado pelo parametros
-        //// TODO: 25/05/17 verificar se foi passado alguma informacao afim de evitar erros 
-        Usuario usuario = (Usuario) getIntent().getBundleExtra("extra").getSerializable("usuario");
 
         //verifica se foi passado alguma medicao
         if (usuario != null) {

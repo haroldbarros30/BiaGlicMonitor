@@ -14,21 +14,23 @@ import static android.os.Build.VERSION_CODES.M;
 public class Usuario implements Serializable {
     private String Nome;
     private String Email;
+    private String Telefone;
     private List<Medicao> Medicoes;
+
+    public Usuario() {
+        this.Nome = "";
+        this.Email = "";
+        this.Medicoes = new ArrayList<>();
+        this.Telefone = "";
+    }
 
     public Usuario(String pNome, String Email) {
         this.Nome = pNome;
         this.Email = Email;
         this.Medicoes = new ArrayList<>();
+        this.Telefone = "";
     }
 
-    public String getNome() {
-        return this.Nome;
-    }
-
-    public String getEmail(){
-        return this.Email;
-    }
 
     public List<Medicao> getMedicoes() {
         return Medicoes;
@@ -46,5 +48,29 @@ public class Usuario implements Serializable {
         }
         else
             return null;
+    }
+
+    public String getTelefone() {
+        return Telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        Telefone = telefone;
+    }
+
+    public String getNome() {
+        return Nome;
+    }
+
+    public void setNome(String nome) {
+        Nome = nome;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
     }
 }

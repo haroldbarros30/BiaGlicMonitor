@@ -14,13 +14,31 @@
         android:text="@string/ConfigTxtInfo"
         android:textSize="30sp"/>
 
-    <TimePicker
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+
+    <EditText
+        android:id="@+id/ConfigEdtLembrete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="50dp"
+        android:inputType="number"/>
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:text="@string/ConfigTxtMinutos"/>
 
-    </TimePicker>
+  </LinearLayout>
 
 
-
+  <Button
+      android:id="@+id/ConfigBtnGravar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/BtnGravar"/>
 
 </LinearLayout>
