@@ -12,6 +12,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import br.com.rsacsolucoes.biaglicmonitor.Model.Medicao;
 import br.com.rsacsolucoes.biaglicmonitor.Model.Usuario;
 import br.com.rsacsolucoes.biaglicmonitor.Service.UsuarioService;
 
@@ -42,6 +46,19 @@ public class MainActivity extends AppCompatActivity {
 
         //define o usuario logado para os testes
         UsuarioService.setUsuarioLogado(new Usuario("Clo","Clo@teste.com.br"));
+
+
+        Usuario usuario = UsuarioService.getUsuarioLogado();
+        usuario.AddMedicao(new Medicao("20170101","00:01:00",100));
+        usuario.AddMedicao(new Medicao("20170101","00:02:00",200));
+        usuario.AddMedicao(new Medicao("20170101","00:03:00",300));
+        usuario.AddMedicao(new Medicao("20170101","00:04:00",400));
+
+        // Write a message to the database
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("usuario");
+        myRef.setValue(usuario);
+
     }
 
     /**
