@@ -1,4 +1,4 @@
-package br.com.rsacsolucoes.biaglicmonitor.Adapter;
+package br.com.rsacsolucoes.biaglicmonitor.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

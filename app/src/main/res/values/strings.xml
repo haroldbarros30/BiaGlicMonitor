@@ -22,4 +22,10 @@
     <string name="ConfigMsgInfoLembrete">Informe o tempo do lembrete em minutos!</string>
     <string name="AddMedicaoMsgMedicaoAdicionada">medição adicionada</string>
     <string name="ConfigMsgConfigGravada">Configurações Gravadas</string>
+    <string name="preference_lembrete_key">ConfigLembrete</string>
+    <string name="preference_usuario_nome">UsuarioNome</string>
+    <string name="preference_usuario_email">UsuarioEmail</string>
+    <string name="preference_usuario_telefone">UsuarioTelefone</string>
+    <string name="preference_usuario_key">UsuarioKey</string>
+    <string name="preference_usuario_id">UsuarioId</string>
 </resources>

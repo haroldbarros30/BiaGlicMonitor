@@ -1,10 +1,10 @@
-package br.com.rsacsolucoes.biaglicmonitor.Model;
+package br.com.rsacsolucoes.biaglicmonitor.model;
+
+import com.google.firebase.database.Exclude;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.os.Build.VERSION_CODES.M;
 
 /**
  * Created by haroldbarros on 20/05/17.
@@ -12,12 +12,14 @@ import static android.os.Build.VERSION_CODES.M;
  */
 
 public class Usuario implements Serializable {
+    private String Id;
     private String Nome;
     private String Email;
     private String Telefone;
     private List<Medicao> Medicoes;
 
     public Usuario() {
+        this.Id = "";
         this.Nome = "";
         this.Email = "";
         this.Medicoes = new ArrayList<>();
@@ -25,6 +27,7 @@ public class Usuario implements Serializable {
     }
 
     public Usuario(String pNome, String Email) {
+        this.Id = "";
         this.Nome = pNome;
         this.Email = Email;
         this.Medicoes = new ArrayList<>();
@@ -32,6 +35,7 @@ public class Usuario implements Serializable {
     }
 
 
+    @Exclude
     public List<Medicao> getMedicoes() {
         return Medicoes;
     }
@@ -40,6 +44,7 @@ public class Usuario implements Serializable {
         this.Medicoes.add(medicao);
     }
 
+    @Exclude
     public Medicao getUltimaMedicao(){
 
         //se existe medicoes adicionadas
@@ -72,5 +77,13 @@ public class Usuario implements Serializable {
 
     public void setEmail(String email) {
         Email = email;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
     }
 }

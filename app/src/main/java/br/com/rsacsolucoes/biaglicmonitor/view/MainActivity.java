@@ -1,32 +1,25 @@
-package br.com.rsacsolucoes.biaglicmonitor;
+package br.com.rsacsolucoes.biaglicmonitor.view;
 
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Build;
+import android.provider.Settings.Secure;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.transition.ChangeBounds;
 import android.transition.Explode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import br.com.rsacsolucoes.biaglicmonitor.Model.Medicao;
-import br.com.rsacsolucoes.biaglicmonitor.Model.Usuario;
-import br.com.rsacsolucoes.biaglicmonitor.Service.UsuarioService;
-
-import static android.R.attr.name;
-import static android.R.attr.reqFiveWayNav;
-import static br.com.rsacsolucoes.biaglicmonitor.R.id.MainBtnAdd;
-import static br.com.rsacsolucoes.biaglicmonitor.R.id.MainBtnCadastro;
-import static br.com.rsacsolucoes.biaglicmonitor.R.id.MainBtnCompartilhar;
-import static br.com.rsacsolucoes.biaglicmonitor.R.id.MainBtnConfigurar;
+import br.com.rsacsolucoes.biaglicmonitor.R;
+import br.com.rsacsolucoes.biaglicmonitor.model.Usuario;
+import br.com.rsacsolucoes.biaglicmonitor.service.UsuarioService;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static Context MainContext;
+
 
     private Button MainBtnAdd;
     private Button MainBtnAcompanhar;
@@ -35,31 +28,27 @@ public class MainActivity extends AppCompatActivity {
     private Button MainBtnConfigurar;
     private Button MainBtnMinhasMedicoes;
     private ImageView ImgLogo;
+    public static String android_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //pega o id do telefone que sera necessario para as validacoes posteriores com o firebase
+        android_id = Secure.getString(this.getContentResolver(),Secure.ANDROID_ID);
+
+        //guarda para ser usado por outras classes
+        //// TODO: 27/05/17 Duvida sobre qual a melhor forma de resolver este problema, para armazenar as configuracoes no ConfigService
+        MainContext = getApplicationContext();
+
         findViews();
         setActions();
 
-        //define o usuario logado para os testes
-        UsuarioService.setUsuarioLogado(new Usuario("Clo","Clo@teste.com.br"));
-
-
-        Usuario usuario = UsuarioService.getUsuarioLogado();
-        usuario.AddMedicao(new Medicao("20170101","00:01:00",100));
-        usuario.AddMedicao(new Medicao("20170101","00:02:00",200));
-        usuario.AddMedicao(new Medicao("20170101","00:03:00",300));
-        usuario.AddMedicao(new Medicao("20170101","00:04:00",400));
-
-        // Write a message to the database
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("usuario");
-        myRef.setValue(usuario);
-
+        //verifica se o usuario ja fez o cadastro e chamando a tela de cadastro
+        VerificarUsuarioLogado();
     }
+
 
     /**
      * realiza o vinculo das variaveis com as view xml
@@ -118,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 goToAcompDetalheActivity();
             }
         });
+
         ImgLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,10 +145,44 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    /**
+     * Funcao deve garantir que o usuario seja cadastrado nao permitrindo segui com o processo enquanto o cadastro nao e realizado
+     * @return
+     */
+    private boolean VerificarUsuarioLogado() {
+        //verifica se o usuario realizou o cadastro
+        Usuario usuariologado = UsuarioService.getUsuarioLogado();
+
+        //chama a tela de cadastro de usuario
+        if (usuariologado == null){
+            goToCadastroActivity();
+            return false;
+        }
+
+        //se nao foi informado  o email o sistema chama a tela de cadastro
+        if (usuariologado.getEmail().equals("")){
+            goToCadastroActivity();
+            return false;
+        }
+
+
+        //retorna que o usuario esta logado, liberando a tela principal do aplicativo
+        return true;
+    }
+
     public void goToCompartilharActivity() {
+
+        //verifica se o usuario esta cadastrado e chama a tela de cadastro
+        if (!VerificarUsuarioLogado())
+            return;
+
+
         Intent intent = new Intent(MainActivity.this, CompartilharActivity.class);
         startActivity(intent);
     }
+
+
 
     private void goToCadastroActivity() {
         Intent intent = new Intent(MainActivity.this, CadastroActivity.class);
@@ -166,16 +190,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void goToConfigActivity() {
+
+        //verifica se o usuario esta cadastrado e chama a tela de cadastro
+        if (!VerificarUsuarioLogado())
+            return;
+
         Intent intent = new Intent(MainActivity.this, ConfigActivity.class);
         startActivity(intent);
     }
 
     private void goToAcompActivity() {
+
+        //verifica se o usuario esta cadastrado e chama a tela de cadastro
+        if (!VerificarUsuarioLogado())
+            return;
+
         Intent intent = new Intent(MainActivity.this, AcompActivity.class);
         startActivity(intent);
     }
 
     private void goToAcompDetalheActivity() {
+
+        //verifica se o usuario esta cadastrado e chama a tela de cadastro
+        if (!VerificarUsuarioLogado())
+            return;
+
         Intent intent = new Intent(MainActivity.this, AcompDetalheActivity.class);
         startActivity(intent);
     }

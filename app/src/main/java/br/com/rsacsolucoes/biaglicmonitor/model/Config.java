@@ -1,4 +1,4 @@
-package br.com.rsacsolucoes.biaglicmonitor.Model;
+package br.com.rsacsolucoes.biaglicmonitor.model;
 
 import java.io.Serializable;
 

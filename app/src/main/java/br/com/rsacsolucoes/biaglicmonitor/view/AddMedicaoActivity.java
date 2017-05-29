@@ -1,6 +1,5 @@
-package br.com.rsacsolucoes.biaglicmonitor;
+package br.com.rsacsolucoes.biaglicmonitor.view;
 
-import android.content.Context;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,18 +9,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.text.DateFormat;
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
-import br.com.rsacsolucoes.biaglicmonitor.Model.Medicao;
-import br.com.rsacsolucoes.biaglicmonitor.Model.Usuario;
-import br.com.rsacsolucoes.biaglicmonitor.Service.UsuarioService;
-
-import static br.com.rsacsolucoes.biaglicmonitor.R.id.ImgLogo;
-import static br.com.rsacsolucoes.biaglicmonitor.Service.UsuarioService.getUsuarioLogado;
+import br.com.rsacsolucoes.biaglicmonitor.R;
+import br.com.rsacsolucoes.biaglicmonitor.model.Medicao;
+import br.com.rsacsolucoes.biaglicmonitor.service.UsuarioService;
 
 public class AddMedicaoActivity extends AppCompatActivity {
 
@@ -89,21 +79,11 @@ public class AddMedicaoActivity extends AppCompatActivity {
                     return;
                 }
 
-                //busca a data atual
-                Date DataAtual = Calendar.getInstance().getTime();
 
-                //formata a data
-                DateFormat fmtDt = new SimpleDateFormat("yyyyMMdd");
-                String DataAtualStr =  fmtDt.format(DataAtual);
+                Medicao medicao = new Medicao(valor);
 
-                //formada a hora
-                DateFormat fmtHr = new SimpleDateFormat("HH:mm:ss");
-                String HoraAtualStr = fmtHr.format(DataAtual);
-
-                Medicao medicao = new Medicao(DataAtualStr,HoraAtualStr,valor);
-
-                //adiciona a medicao ao usuario logado
-                getUsuarioLogado().AddMedicao(medicao);
+                //grava a medica na base de dados
+                UsuarioService.AddMedicao(medicao);
 
                 Toast toast = Toast.makeText(getApplicationContext(), R.string.AddMedicaoMsgMedicaoAdicionada, Toast.LENGTH_SHORT);
                 toast.show();

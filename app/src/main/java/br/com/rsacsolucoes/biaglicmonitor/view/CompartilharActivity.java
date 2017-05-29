@@ -1,7 +1,9 @@
-package br.com.rsacsolucoes.biaglicmonitor;
+package br.com.rsacsolucoes.biaglicmonitor.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import br.com.rsacsolucoes.biaglicmonitor.R;
 
 public class CompartilharActivity extends AppCompatActivity {
 

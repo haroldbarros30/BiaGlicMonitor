@@ -1,4 +1,4 @@
-package br.com.rsacsolucoes.biaglicmonitor.Adapter;
+package br.com.rsacsolucoes.biaglicmonitor.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import br.com.rsacsolucoes.biaglicmonitor.Model.Usuario;
+import br.com.rsacsolucoes.biaglicmonitor.model.Usuario;
 import br.com.rsacsolucoes.biaglicmonitor.R;
 
 //import static android.icu.text.RelativeDateTimeFormatter.Direction.THIS;

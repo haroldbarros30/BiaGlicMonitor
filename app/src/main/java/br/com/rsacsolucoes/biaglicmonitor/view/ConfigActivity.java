@@ -1,4 +1,4 @@
-package br.com.rsacsolucoes.biaglicmonitor;
+package br.com.rsacsolucoes.biaglicmonitor.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,7 +7,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import br.com.rsacsolucoes.biaglicmonitor.Service.ConfigService;
+import br.com.rsacsolucoes.biaglicmonitor.R;
+import br.com.rsacsolucoes.biaglicmonitor.model.Config;
+import br.com.rsacsolucoes.biaglicmonitor.service.ConfigService;
+
+import static br.com.rsacsolucoes.biaglicmonitor.service.ConfigService.getConfiguracao;
 
 public class ConfigActivity extends AppCompatActivity {
 
@@ -25,7 +29,7 @@ public class ConfigActivity extends AppCompatActivity {
         setActions();
 
         //busca a configuracao atual
-        ConfigEdtLembrete.setText(String.valueOf(ConfigService.getConfiguracao().getLembrete()));
+        ConfigEdtLembrete.setText(String.valueOf(getConfiguracao().getLembrete()));
 
 
     }
@@ -62,7 +66,11 @@ public class ConfigActivity extends AppCompatActivity {
                     return;
                 }
 
-                ConfigService.getConfiguracao().setLembrete(lembrete);
+
+
+                Config configuracao = ConfigService.getConfiguracao();
+                configuracao.setLembrete(lembrete);
+                ConfigService.setConfiguracao(configuracao);
 
                 Toast toast = Toast.makeText(getApplicationContext(), R.string.ConfigMsgConfigGravada, Toast.LENGTH_SHORT);
                 toast.show();

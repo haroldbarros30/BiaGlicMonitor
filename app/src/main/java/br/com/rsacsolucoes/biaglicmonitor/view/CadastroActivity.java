@@ -1,20 +1,20 @@
-package br.com.rsacsolucoes.biaglicmonitor;
+package br.com.rsacsolucoes.biaglicmonitor.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.Toast;
 
-import br.com.rsacsolucoes.biaglicmonitor.Model.Usuario;
-import br.com.rsacsolucoes.biaglicmonitor.Service.UsuarioService;
-
-import static br.com.rsacsolucoes.biaglicmonitor.R.id.ImgLogo;
+import br.com.rsacsolucoes.biaglicmonitor.R;
+import br.com.rsacsolucoes.biaglicmonitor.model.Usuario;
+import br.com.rsacsolucoes.biaglicmonitor.service.UsuarioService;
 
 public class CadastroActivity extends AppCompatActivity {
 
 
+    private EditText CadastroEdtId;
     private EditText CadastroEdtNome;
     private EditText CadastroEdtEmail;
     private EditText CadastroEdtTelefone;
@@ -34,6 +34,7 @@ public class CadastroActivity extends AppCompatActivity {
         usuario = UsuarioService.getUsuarioLogado();
 
         //preenche os dados
+        CadastroEdtId.setText(usuario.getId());
         CadastroEdtNome.setText(usuario.getNome());
         CadastroEdtEmail.setText(usuario.getEmail());
         CadastroEdtTelefone.setText(usuario.getTelefone());
@@ -46,6 +47,7 @@ public class CadastroActivity extends AppCompatActivity {
      */
     private void findViews() {
 
+        CadastroEdtId = (EditText) findViewById(R.id.CadastroEdtId);
         CadastroEdtNome = (EditText) findViewById(R.id.CadastroEdtNome);
         CadastroEdtEmail = (EditText) findViewById(R.id.CadastroEdtEmail);
         CadastroEdtTelefone = (EditText) findViewById(R.id.CadastroEdtTelefone);
@@ -68,12 +70,30 @@ public class CadastroActivity extends AppCompatActivity {
                 }
 
                 //guara os dados de cadastro na variavel de login
+                usuario.setId(CadastroEdtId.getText().toString());
                 usuario.setNome(CadastroEdtNome.getText().toString());
                 usuario.setEmail(CadastroEdtEmail.getText().toString());
                 usuario.setTelefone(CadastroEdtTelefone.getText().toString());
 
-                //grava o novo cadastro
-                UsuarioService.setUsuarioLogado(usuario);
+
+                try {
+
+                    //grava o novo cadastro
+                    if (!UsuarioService.setUsuarioLogado(usuario))
+                        return;
+
+                } catch (Exception e){
+
+                    //se houve algum erro o  sistema exibe a mensagem de erro
+                    Toast toast = Toast.makeText(getApplicationContext(),e.getMessage(), Toast.LENGTH_LONG);
+                    toast.show();
+                    return;
+                }
+
+
+                //finaliza a activity se o cadastro foi realizado com sucesso
+                finish();
+
 
             }
         });
