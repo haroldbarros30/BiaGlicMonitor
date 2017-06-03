@@ -12,7 +12,7 @@
         android:id="@+id/AddMedicaoImgLogo"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/glicmonitor"/>
+        android:src="@mipmap/glicmonitor"/>
 
     <EditText
         android:id="@+id/AddMedicaoEdtTaxa"

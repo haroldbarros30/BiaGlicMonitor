@@ -65,7 +65,7 @@ public class ConfigService {
             alarmMgr.cancel(alarmIntent);
         }
 
-        //// TODO: 02/06/17 Verificar o que estou fazendo de errado para ativar o lembrete de medicoes 
+        //// TODO: 02/06/17 Verificar o que estou fazendo de errado para ativar o lembrete de medicoes
         //cria o lembrete conforme o tempo determinado para o alarme
         alarmMgr = (AlarmManager)MainActivity.MainContext.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(MainActivity.MainContext, AddMedicaoActivity.class);
