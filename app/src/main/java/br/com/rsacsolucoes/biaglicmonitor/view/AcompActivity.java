@@ -48,6 +48,8 @@ public class AcompActivity extends AppCompatActivity {
 
         findViews();
 
+        
+        //// TODO: 29/05/17 Como fazer para nao trazer todas as medicores, e se houver 1000 medicoes? 
         //pega a referencia de todos os usuarios
         databaseReference = FirebaseDatabase.getInstance().getReference();
 

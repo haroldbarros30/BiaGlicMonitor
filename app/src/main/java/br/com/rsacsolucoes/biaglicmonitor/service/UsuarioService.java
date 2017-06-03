@@ -25,11 +25,6 @@ public class UsuarioService {
 
     private static Usuario UsuarioLogado;
 
-    //guarda a lista de pessoas que o usuario atual acompanha
-    private static List<Usuario> usuarios;
-    private static List<Medicao> medicoes;
-
-
     /**
      * Retorna o usuario logado/cadastrado
      * @return
